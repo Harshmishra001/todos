@@ -23,7 +23,7 @@ This is a simple and secure Todo App API built with Node.js, Express, and MongoD
 ### Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/Harshmishra001/todo.git
+   git clone https://github.com/Harshmishra001/todos.git
    cd backend
    ```
 
