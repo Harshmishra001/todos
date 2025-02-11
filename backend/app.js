@@ -28,7 +28,7 @@ app.post('/api/v1/signup', async (req, res) => {
     return res.status(400).json({ error: 'Invalid input' });
   }
   try {
-    user = await User.create(result.data);
+    const user = await User.create(result.data);
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.status(200).json({ jwt: token, name: user.name, id: user._id });
   } catch (error) {
@@ -71,7 +71,7 @@ app.post('/api/v1/todo', authenticate, async (req, res) => {
     const todo = await Todo.create({
       title: result.data.title,
       content: result.data.content,
-      authorId: req.userId,
+       authorId: req.userId,
     });
     return res.json({ id: todo._id });
   } catch (error) {
@@ -157,7 +157,7 @@ app.put('/api/v1/complete-todo', authenticate, async (req, res) => {
 
 
 
-const PORT = 3010;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
